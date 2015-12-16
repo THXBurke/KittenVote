@@ -48,7 +48,7 @@ var randomImage2 = Kittens[randomNumber].img="images/top.jpg"
 function compareImg() {
 	randomImage1 = generateRandom();
 	randomImage2 = generateRandom();
-	if (randomImage1 === randomPhoto2) {
+	if (randomImage1 === randomImage2) {
 		randomImage1 = generateRandom();
 	}
 	imgTop.src = kittens[randomImage1].image;
@@ -60,11 +60,10 @@ compareImg();
 var kittenVote = function() {
 	for(var i in kittens) {
 		if(kittens[i].src === kittens) {
+			kittens.votes +=1;
 		}
 	}
 };
-
-
 
 
 
