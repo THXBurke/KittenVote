@@ -6,7 +6,7 @@ var CutestKitten = function(name, photo) {
 	this.photo = photo;
 	this.votes = 0;
 	kittens.push(this);
-};
+}; 
 
 if (localStorage !== null) {
 	localStorage.getItems(CutestKitten);
