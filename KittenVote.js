@@ -1,18 +1,18 @@
 //start with the function
 var kittens = [];
 
-var CutestKitten = function(name, photo) {
+var CutestKitten = function(name, image) {
 	this.name = name;
-	this.photo = photo;
+	this.image = image;
 	this.votes = 0;
 	kittens.push(this);
 }; 
 
-if (localStorage !== null) {
-	localStorage.getItems(CutestKitten);
-} else {
-	getStorage();
-}
+// //if (localStorage !== null) {
+// 	localStorage.getItems(CutestKitten);
+// } else {
+// 	getStorage();
+// }
 
 //then create the objects (deleted contestant1 so only 12 contestants total)
 
@@ -32,7 +32,7 @@ var contestant13 = new CutestKitten("contestant13", "images/13.jpg");
 
 //create function to choose random image from contestants
 
-function getRandom() {
+function randomNumber() {
 	return Math.floor(Math.random() * kittens.length);
 }
 
@@ -40,16 +40,36 @@ var imgTop = document.getElementById("imgTop");
 var imgBottom = document.getElementById("imgBottom");
 
 //generate random number
-var randomImage1 = Kittens[randomNumber].img="images/top.jpg"
-var randomImage2 = Kittens[randomNumber].img="images/top.jpg"
+var randomImage1 = kittens[randomNumber()];
+var randomImage2 = kittens[randomNumber()];
+
+$('#imgId1').attr("src", randomImage1.image);
+$('#imgId2').attr("src", randomImage2.image);
+
+$("#imgTop").click function() {
+	$(this).vote+=1());
+}
+
+
+
+
 
 //generate randomNumber
 //$('#imgTop').html('<img src="images/02.jpg"' + randomKitten + '"images/03.jpg">');
+
+
+
+
+
+
+
+
+
 function compareImg() {
-	randomImage1 = generateRandom();
-	randomImage2 = generateRandom();
+	randomImage1 = randomNumber();
+	randomImage2 = randomNumber();
 	if (randomImage1 === randomImage2) {
-		randomImage1 = generateRandom();
+		randomImage1 = randomNumber();
 	}
 	imgTop.src = kittens[randomImage1].image;
 	imgBottom.src = kittens[randomImage2].image;

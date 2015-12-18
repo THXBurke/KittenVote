@@ -3,3 +3,7 @@ div {
 	width: 200px;
 	height: 200px;
 }
+
+#imgId1, #imgId2:hover {
+    background: yellow;
+  }
