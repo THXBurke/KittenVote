@@ -70,25 +70,81 @@ $("#refresh").on("click", function(){
 })
 
 
-//Chart.js barchart 
+//Chart.js polar chart
 
-var myBarChart = new Chart(ctx).Bar(data, options);
 
-var data = {
-    labels: ["contestant2", "contestant3", "contestant4", "contestant5", "contestant6", "contestant7", "contestant8", "contestant9", "contestant10", "contestant11", "contestant12", "contestant13"],
-    datasets: [
-        {
-            label: "Vote Tracker Chart",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        
-    ]
-};
+var polarData = [
+	{
+		label: "contestant2",
+		value: contestant2.votes,
+		color: "#878BB6"
+	},
+	{
+		label: "contestant3",
+		value: contestant3.votes,
+		color: "#4ACAB4"
+	},
+	{
+		label: "contestant4",
+		value: contestant4.votes,
+		color: "#8ce8cc"
+	},
+	{
+		label: "contestant5",
+		value: contestant5.votes,
+		color: "#8DFFFF"
+	},
+	{
+		label: "contestant6",
+		value: contestant6.votes,
+		color: "#FF66A3"
+	},
+	{
+		label: "contestant7",
+		value: contestant7.votes,
+		color: "#66FF99"
+	},
+	{	
+		label: "contestant8",
+		value: contestant8.votes,
+		color:  "#85A3FF"
+	},
+	{
+		label: "contestant9",
+		value: contestant9.votes,
+		color: "#DBDB4D"
+	},
+	{
+		label: "contestant10",
+		value: contestant10.votes,
+		color: "#66FFCC"
+	},
+	{
+		label: "contestant11",
+		value: contestant11.votes,
+		color: "#FF99CC"
+	},
+	{
+		label: "contestant12",
+		value: contestant12.votes,
+		color:  "#FF3333"
+	},
+	{
+		label: "contestant13",
+		value: contestant13.votes,
+		color: "#9999FF"
+	}
+];
 
+
+var polarOptions = {
+	segmentShowsStroke: true,
+	animateScale: true,
+	animateRotate: false
+}
+
+var CutestKitten = document.getElementById("CutestKitten").getContext("2d");
+var myNewChart = new Chart(CutestKitten).PolarArea(polarData, polarOptions);
 //highlight winner
 
 
