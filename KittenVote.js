@@ -47,8 +47,7 @@ $('#imgId2').attr("src", randomImage2.image);
 //check for and override duplicates
 if (randomImage1 === randomImage2) {
 	randomImage2 = kittens[randomNumber()];
-	$('#imgId2').attr("src", randomImage2.image);
-	
+	$('#imgId2').attr("src", randomImage2.image);	
 }
 
 //click event for voting 
@@ -71,27 +70,26 @@ $("#refresh").on("click", function(){
 })
 
 
-//seems like a good idea eventually...
-if (localStorage !== null) {
-	localStorage.getItem(CutestKitten);
-} else {
-	getStorage();
-}
-	
+//Chart.js barchart 
 
+var myBarChart = new Chart(ctx).Bar(data, options);
 
-//allows for next round of votes
-
+var data = {
+    labels: ["contestant2", "contestant3", "contestant4", "contestant5", "contestant6", "contestant7", "contestant8", "contestant9", "contestant10", "contestant11", "contestant12", "contestant13"],
+    datasets: [
+        {
+            label: "Vote Tracker Chart",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: [65, 59, 80, 81, 56, 55, 40]
+        },
+        
+    ]
+};
 
 //highlight winner
-
-
-
-
-//prevent same random image from loading
-
-
-
 
 
 
