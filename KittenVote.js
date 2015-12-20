@@ -6,15 +6,11 @@ var CutestKitten = function(name, image) {
 	this.image = image;
 	this.votes = 0;
 	kittens.push(this);
+	this.highlight;
 }; 
 
-// //if (localStorage !== null) {
-// 	localStorage.getItems(CutestKitten);
-// } else {
-// 	getStorage();
-// }
 
-//then create the objects (deleted contestant1 so only 12 contestants total)
+//create the objects (deleted contestant1 so only 12 contestants total)
 
 
 var contestant2 = new CutestKitten("contestant2", "images/02.jpg");
@@ -39,54 +35,65 @@ function randomNumber() {
 var imgTop = document.getElementById("imgTop");
 var imgBottom = document.getElementById("imgBottom");
 
-//generate random number
+//generate random image to appear
 var randomImage1 = kittens[randomNumber()];
 var randomImage2 = kittens[randomNumber()];
 
 $('#imgId1').attr("src", randomImage1.image);
 $('#imgId2').attr("src", randomImage2.image);
 
-$("#imgTop").click function() {
-	$(this).vote+=1());
-}
-
-
-
-
-
-//generate randomNumber
-//$('#imgTop').html('<img src="images/02.jpg"' + randomKitten + '"images/03.jpg">');
-
-
-
-
-
-
-
-
-
-function compareImg() {
-	randomImage1 = randomNumber();
+//check for and override duplicates
+if (randomImage1 ===randomImage2) {
 	randomImage2 = randomNumber();
-	if (randomImage1 === randomImage2) {
-		randomImage1 = randomNumber();
-	}
-	imgTop.src = kittens[randomImage1].image;
-	imgBottom.src = kittens[randomImage2].image;
 }
 
-compareImg();
-
-var kittenVote = function() {
-	for(var i in kittens) {
-		if(kittens[i].src === kittens) {
-			kittens.votes +=1;
-		}
-	}
-};
+//click event for voting 
 
 
 
-//then the array
+
+
+//$("#imgId1,").on("click").function(vote) {
+	//$(this).vote("");
+//});
+
+
+
+//seems like a good idea eventually...
+if (localStorage !== null) {
+	localStorage.getItem(CutestKitten);
+} else {
+	getStorage();
+}
+	
+
+
+
+//allows for next round of votes
+var voteAgain = document.createElement('button');
+	voteAgain.setAttribute('id', 'vote');
+	voteAgain.innerHTML = ("Vote Again!");
+	document.body.appendChild(voteAgain);
+
+function hideButton() {
+
+}
+
+//highlight winner
+
+
+
+
+//prevent same random image from loading
+
+
+
+
+
+
+
+
+
+
 
 
