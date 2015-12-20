@@ -36,27 +36,39 @@ var imgTop = document.getElementById("imgTop");
 var imgBottom = document.getElementById("imgBottom");
 
 //generate random image to appear
+function refresh(){
 var randomImage1 = kittens[randomNumber()];
 var randomImage2 = kittens[randomNumber()];
+
 
 $('#imgId1').attr("src", randomImage1.image);
 $('#imgId2').attr("src", randomImage2.image);
 
 //check for and override duplicates
-if (randomImage1 ===randomImage2) {
-	randomImage2 = randomNumber();
+if (randomImage1 === randomImage2) {
+	randomImage2 = kittens[randomNumber()];
+	$('#imgId2').attr("src", randomImage2.image);
+	
 }
 
 //click event for voting 
 
+$("#imgId1").on("click", function(vote) {
+	randomImage1.votes += 1;
+	console.log(randomImage1.votes);
+});
 
+$("#imgId2").on("click", function(vote) {
+	randomImage2.votes += 1;
+	console.log(randomImage2.votes)
+});
 
+};
+refresh();
 
-
-//$("#imgId1,").on("click").function(vote) {
-	//$(this).vote("");
-//});
-
+$("#refresh").on("click", function(){
+	refresh();
+})
 
 
 //seems like a good idea eventually...
@@ -68,16 +80,8 @@ if (localStorage !== null) {
 	
 
 
-
 //allows for next round of votes
-var voteAgain = document.createElement('button');
-	voteAgain.setAttribute('id', 'vote');
-	voteAgain.innerHTML = ("Vote Again!");
-	document.body.appendChild(voteAgain);
 
-function hideButton() {
-
-}
 
 //highlight winner
 
