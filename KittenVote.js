@@ -50,33 +50,17 @@ if (randomImage1 === randomImage2) {
 	$('#imgId2').attr("src", randomImage2.image);	
 }
 
-//click event for voting 
 
-$("#imgId1").on("click", function(vote) {
-	randomImage1.votes += 1;
-	console.log(randomImage1.votes);
-});
-
-$("#imgId2").on("click", function(vote) {
-	randomImage2.votes += 1;
-	console.log(randomImage2.votes)
-});
-
-};
-refresh();
-
-$("#refresh").on("click", function(){
-	refresh();
-})
 
 
 //Chart.js polar chart
 // Get context with jQuery - using jQuery's .get() method.
- $("#myChart").get(+=1).get("2d");
+//var getVotes = $("#myChart").getVotes(0).get("2d");
+//var getVotes = $("#myChart").getContext('2d');
 // This will get the first returned node in the jQuery collection.
-var myChart = new Chart(getVotes);
+//var myChart = new Chart(getVotes).;
 
-new myChart(votes).PolarArea(data, options);
+//new myChart(votes).PolarArea(data, options);
 
 var polarData = [
 	{
@@ -148,24 +132,58 @@ var polarOptions = {
 	animateRotate: false
 }
 
-Chart.defaults.global.responsive = true;
+//Chart.defaults.global.responsive = true;
+
+
+
 
 var myChart = document.getElementById("myChart").getContext("2d");
-var myChart = new Chart(CutestKitten).PolarArea(polarData, polarOptions);
+//var myChart = new Chart(CutestKitten).PolarArea(polarData, polarOptions);
+
+var myChart = new Chart(myChart).PolarArea(polarData, polarOptions);
 
 //highlight cutest
 
-$(".imgLeft").live("click", function(){ 
-    var id = this.id;
-    $('div[id^="item"]').css({'background':'none'})
-    $("#item"+id).css({'background':'#35203B'});
+//click event for voting 
+
+$("#imgId1").on("click", function(vote) {
+	randomImage1.votes += 1;
+	myChart.update();
+	console.log(randomImage1.votes);
+	var id = this.id;
+    //$('div[id^="item"]').css({'background':'none'})
+    //$("#item"+id).css({'background':'#35203B'});
+    $("#imgId1").css('background-color', '#35203B')
 });
 
-$(".imgRight").live("click", function(){ 
+$("#imgId2").on("click", function(vote) {
+	randomImage2.votes += 1;
+	myChart.update();
+	console.log(randomImage2.votes)
+});
+
+};
+refresh();
+
+$("#refresh").on("click", function(){
+	refresh();
+})
+
+
+/*
+$(".imgLeft").on("click", function(){ 
     var id = this.id;
     $('div[id^="item"]').css({'background':'none'})
-    $("#item"+id).css({'background':'#35203B'});
+    //$("#item"+id).css({'background':'#35203B'});
+    $("#item"+id).css('background-color', 'blue')
 });
+
+$(".imgRight").on("click", function(){ 
+    var id = this.id;
+    $('div[id^="item"]').css({'background':'none'})
+    $("#item"+id).css({'background''#35203B'});
+});
+*/
 
 
 
