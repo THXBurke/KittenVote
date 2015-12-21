@@ -32,8 +32,8 @@ function randomNumber() {
 	return Math.floor(Math.random() * kittens.length);
 }
 
-var imgTop = document.getElementById("imgTop");
-var imgBottom = document.getElementById("imgBottom");
+var imgLeft = document.getElementById("imgLeft");
+var imgRight = document.getElementById("imgRight");
 
 //generate random image to appear
 function refresh(){
@@ -71,7 +71,12 @@ $("#refresh").on("click", function(){
 
 
 //Chart.js polar chart
+// Get context with jQuery - using jQuery's .get() method.
+ $("#myChart").get(+=1).get("2d");
+// This will get the first returned node in the jQuery collection.
+var myChart = new Chart(getVotes);
 
+new myChart(votes).PolarArea(data, options);
 
 var polarData = [
 	{
@@ -138,19 +143,29 @@ var polarData = [
 
 
 var polarOptions = {
-	segmentShowsStroke: true,
+	segmentShowsStroke: false,
 	animateScale: true,
 	animateRotate: false
 }
 
-var CutestKitten = document.getElementById("CutestKitten").getContext("2d");
-var myNewChart = new Chart(CutestKitten).PolarArea(polarData, polarOptions);
-//highlight winner
+Chart.defaults.global.responsive = true;
 
+var myChart = document.getElementById("myChart").getContext("2d");
+var myChart = new Chart(CutestKitten).PolarArea(polarData, polarOptions);
 
+//highlight cutest
 
+$(".imgLeft").live("click", function(){ 
+    var id = this.id;
+    $('div[id^="item"]').css({'background':'none'})
+    $("#item"+id).css({'background':'#35203B'});
+});
 
-
+$(".imgRight").live("click", function(){ 
+    var id = this.id;
+    $('div[id^="item"]').css({'background':'none'})
+    $("#item"+id).css({'background':'#35203B'});
+});
 
 
 
